@@ -7,7 +7,7 @@ from urllib.parse import unquote
 from .user_agents import get_useragent
 from enum import Enum
 
-__version__ = "2.0.0"
+__version__ = "2.5.0"
 __author__ = "https://www.tiktok.com/@vibecoding_pemula"
 
 _session = Session()
