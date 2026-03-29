@@ -8,6 +8,7 @@ A fast, multi-source web search library with intelligent fallback and content ex
 
 ## Features
 
+### Core Features
 ✨ **Fast Web Search** - Search across multiple sources with intelligent fallback (Google + DuckDuckGo)  
 🔄 **Auto Fallback** - Automatically uses DuckDuckGo if Google is blocked  
 📄 **Content Extraction** - Extract clean, readable text from websites without HTML  
@@ -15,6 +16,12 @@ A fast, multi-source web search library with intelligent fallback and content ex
 🌍 **Multi-language** - Support for 30+ languages and regions  
 🔧 **Advanced Filtering** - Unique results, safe search, pagination support  
 ⚡ **Fast Performance** - Optimized with curl-cffi for speed and reliability
+
+### Advanced Features
+🎯 **Query Intent Detection** - Automatically detect search intent (Informational, Navigational, Transactional, Local) for better result ranking  
+🏆 **Smart Ranking Algorithm** - Advanced ranking engine that scores results based on keyword matching, URL quality, and domain authority  
+✅ **Content Quality Assessment** - Evaluate content quality based on title optimization, description comprehensiveness, and URL structure  
+🌈 **Result Diversification** - Smart result diversification to provide varied and comprehensive search results
 
 ## Installation
 
@@ -110,14 +117,90 @@ Extract and save website content.
 - `url` (str): Website URL
 - `filename` (str): Output filename (auto-generated if None)
 
+## Advanced Features Documentation
+
+### Query Intent Detection
+Automatically detect the intent behind a search query to improve result ranking.
+
+```python
+from Query_Intent_Detection import detect_intent, SearchIntent
+
+# Detect search intent
+intent = detect_intent("How to learn Python")
+print(intent)  # SearchIntent.INFORMATIONAL
+
+# Supported intents:
+# - INFORMATIONAL: "How to...", "What is...", "Explain"
+# - NAVIGATIONAL: Brand or site-specific searches
+# - TRANSACTIONAL: "Buy...", "Price...", "Download"
+# - LOCAL: "Near me", location-based searches
+```
+
+### Smart Ranking Algorithm
+Score and rank search results based on relevance factors.
+
+```python
+from Ranking_Algorithm import SearchRanker
+
+ranker = SearchRanker()
+
+# Score a single result
+score = ranker.score_result("Python tutorial", search_result)
+print(f"Relevance Score: {score}")
+
+# Ranking considers:
+# - Keyword matching in title (100 points)
+# - Keyword matching in description (50 points)
+# - URL quality check (30 points)
+# - Domain authority (up to 20 points)
+```
+
+### Content Quality Assessment
+Evaluate the quality of search results based on various metrics.
+
+```python
+from Content_Quality_Assessment import assess_content_quality
+
+# Assess quality of a result
+quality_score = assess_content_quality(
+    title="Complete Python Programming Guide",
+    description="A comprehensive guide covering Python basics...",
+    url="https://example.com/python-guide"
+)
+print(f"Quality Score: {quality_score}")  # 0-100
+
+# Factors considered:
+# - Title length optimization (20 points)
+# - Description comprehensiveness (20 points)
+# - Content validity check (20 points)
+# - URL readability (20 points)
+# - Content freshness (20 points)
+```
+
+### Result Diversification
+Get diverse search results covering multiple aspects of your query.
+
+```python
+from Result_Diversification import diversify_results
+
+# Diversify results to cover different aspects
+diverse_results = diversify_results(results, max_per_domain=2)
+print(f"Original results: {len(results)}")
+print(f"Diversified results: {len(diverse_results)}")
+```
+
 ## How It Works
 
-Flash-search uses a dual-source strategy:
+Flash-search uses a comprehensive multi-layered approach:
 
 1. **Primary Source**: Uses `curl-cffi` to impersonate a real browser and fetch Google results
 2. **Fallback Source**: Automatically switches to DuckDuckGo if Google blocks the request
+3. **Intent Detection**: Analyzes the search query to understand user intent and optimize ranking
+4. **Smart Ranking**: Scores results based on keyword relevance, URL quality, and domain authority
+5. **Quality Assessment**: Evaluates content quality using multiple factors
+6. **Result Diversification**: Ensures varied results from different sources and domains
 
-This ensures reliable search results even when one source is unavailable.
+This multi-layered approach ensures reliable, relevant, and diverse search results.
 
 ## Requirements
 

@@ -8,7 +8,7 @@ with open("requirements.txt", "r", encoding='UTF-8') as fh:
 
 setup(
     name="flash-search",
-    version="2.0.0",
+    version="2.5.0",
     author="Tristan P.C",
     author_email="support@flash-search.dev",
     description="A fast, multi-source web search library with intelligent fallback and content extraction.",
