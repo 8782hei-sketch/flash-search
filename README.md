@@ -230,32 +230,3 @@ MIT License - See LICENSE file for details
 ## Disclaimer
 
 This tool is for educational and research purposes. Please respect website terms of service and robots.txt when scraping.
-# - description
-```
-If requesting more than 100 results, googlesearch will send multiple requests to go through the pages. To increase the time between these requests, use `sleep_interval`:
-```python
-from googlesearch import search
-search("Google", sleep_interval=5, num_results=200)
-```
-
-```
-If requesting more than 10 results, but want to manage the batching yourself? 
-Use `start_num` to specify the start number of the results you want to get:
-```python
-from googlesearch import search
-search("Google", sleep_interval=5, num_results=200, start_num=10)
-```
-
-If you are using a HTTP Rotating Proxy which requires you to install their CA Certificate, you can simply add `ssl_verify=False` in the `search()` method to avoid SSL Verification.
-```python
-from googlesearch import search
-
-
-proxy = 'http://username:password@proxy.host.com:8080/'
-# or for socks5
-# proxy = 'socks5://username:password@proxy.host.com:1080/'
-
-j = search("proxy test", num_results=100, lang="en", proxy=proxy, ssl_verify=False)
-for i in j:
-    print(i)
-```
